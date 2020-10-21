@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: clang build active file",
+			"command": "/usr/bin/clang",
+			"args": [
+				"-I",
+                "/Users/keming/objs/tassl-macos-debug/include/",
+                "-L",
+                "/Users/keming/objs/tassl-macos-debug/lib",
+                "-l",
+                "crypto",
+                "-l",
+                "ssl",
+				"-I",
+                "/Users/keming/objs/curl-macos/include/",
+                "-L",
+                "/Users/keming/objs/curl-macos/lib",
+                "-l",
+				"curl",
+				"-l",
+                "z",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
