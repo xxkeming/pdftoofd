@@ -39,6 +39,8 @@ void pdf2ofd(const char *url, const char *file, char *out)
     curl = curl_easy_init();
 
     if (curl) {  
+        curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
+
         curl_easy_setopt(curl, CURLOPT_URL, url);
         
         curl_formadd(&formpost, &lastptr, CURLFORM_COPYNAME, "filename", CURLFORM_FILE, file, CURLFORM_END);
@@ -51,14 +53,51 @@ void pdf2ofd(const char *url, const char *file, char *out)
 
         res = curl_easy_perform(curl);
 
-        if(res != CURLE_OK)  
+        if (res != CURLE_OK)
             fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
 
-        curl_easy_cleanup(curl);  
+        curl_easy_cleanup(curl);
 
-        curl_formfree(formpost);  
+        curl_formfree(formpost);
     }  
 }
+
+
+void test(const char *url, const char *post, char *out)
+{
+    CURL *curl = NULL;
+    CURLcode res;
+
+    curl = curl_easy_init();
+
+    if (curl) {  
+        curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
+
+        curl_easy_setopt(curl, CURLOPT_HTTPPOST, 1);
+
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post);
+
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, url_write_data);
+
+	    curl_easy_setopt(curl, CURLOPT_WRITEDATA, out);
+
+        //struct curl_slist *header = NULL;
+        //header = curl_slist_append(header, "Content-Type: application/json; charset=utf-8;");
+        //curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
+        //Content-Type: application/json; charset=utf-8;
+        //Content-Type: text/html;charset:utf-8;
+
+        res = curl_easy_perform(curl);
+
+        if (res != CURLE_OK)
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+
+        curl_easy_cleanup(curl);
+    }  
+}
+
 
 const char *url_upload = "http://124.70.184.141/upload";
 const char *pdf_file = "/Users/keming/p-pdf/pdftoofd/test/0000000005-1.pdf";
@@ -69,7 +108,9 @@ int main(int argc, char *argv[])
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    pdf2ofd(url_upload, pdf_file, json);
+    test( "http://localhost:8088/upload_json?datatype=path", "data", json);
+
+    //pdf2ofd(url_upload, pdf_file, json);
 
     curl_global_cleanup();
 
