@@ -1,6 +1,12 @@
 ***
 ## PDF板式文档转OFD板式文档
 测试地址 http://124.70.184.141/
+***
+### 20201026
+    1.text和path的stroke参数调整(linewidth和miterlimit)
+    2.image的mask处理,通过颜色生成图片(修改bug)
+    3.添加渐变生成图片
+***
 ### 20201025
     1.text的y坐标优化处理
     2.image的mask(颜色生成图片处理)
