@@ -2,6 +2,11 @@
 ## PDF板式文档转OFD板式文档
 测试地址 http://124.70.184.141/
 ***
+### 20201028
+    1.text处理优化,删除一些没用的字
+    2.image旋转处理优化
+***
+***
 ### 20201026
     1.text和path的stroke参数调整(linewidth和miterlimit)
     2.image的mask处理,通过颜色生成图片(修改bug)
