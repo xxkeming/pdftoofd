@@ -54,3 +54,8 @@ dkms.conf
 test/
 .DS_Store
 toofd
+*.html
+
+service/linux64/conf/
+service/linux64/logs/
+service/linux64/nginx
