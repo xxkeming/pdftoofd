@@ -6,11 +6,26 @@
 
 ***
 #### API调用接口地址
-服务器部署程序: https://github.com/xxkeming/pdftoofd
+服务器部署程序及用例: https://github.com/xxkeming/pdftoofd
+配置说明: 具体参考conf目录里的nginx.conf
+```
+#处理pdf转ofd的插件模块
+location @ofd_convert_from_upload {
+    ofd_convert_from_upload; 
+}
+#接收上传的处理
+location /upload {
+    upload_pass @ofd_convert_from_upload;
+    upload_store html/ofd-process/;
+    upload_store_access user:rw group:rw all:rw;
+    upload_add_header "upload_path" $upload_tmp_path;
+    upload_cleanup 400 404 499 500-505;
+}
+```
 测试服务器地址: http://124.70.184.141/upload
 POST Form 上传PDF文件 http://url-addr/upload
 ```
-<form enctype="multipart/form-data" action="http://124.70.184.141/upload" method="post">
+<form enctype="multipart/form-data" action="/upload" method="post">
     <input type="file" name="file1"><br>
     <input type="submit" name="submit" value="PDF转换OFD">
 </form>
@@ -25,6 +40,9 @@ POST Form 上传PDF文件 http://url-addr/upload
 ```
 
 ***
+#### 20201107
+    1.pdf图层优化,增对透明的放到背景层
+    2.path增对ctm缩放线宽的调整
 #### 20201106
     1.pdf图层分租分块的处理
 #### 20201105
