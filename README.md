@@ -1,45 +1,31 @@
-## PDF转OFD板式文档
-<form enctype="multipart/form-data" action="/upload" method="post">
+## 板式文档转换接口-更新时间(20201125)
+<form name="p2o" enctype="multipart/form-data" action="upload" method="post" target="_blank">
   <input type="file" name="file1"><br>
-  <input type="submit" name="submit" value="PDF转换OFD">
+  <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.p2o.submit();">
 </form>
 
 ***
 #### API调用接口地址
-> 服务器部署程序及用例: https://github.com/xxkeming/pdftoofd
-配置说明: 具体参考conf目录里的nginx.conf
-```
-#处理pdf转ofd的插件模块
-location @ofd_convert_from_upload {
-    ofd_convert_from_upload; 
-}
-#接收上传的处理
-location /upload {
-    upload_pass @ofd_convert_from_upload;
-    upload_store html/ofd-process/;
-    upload_store_access user:rw group:rw all:rw;
-    upload_add_header "upload_path" $upload_tmp_path;
-    upload_cleanup 400 404 499 500-505;
-}
-```
-> 测试服务器地址: http://api.tohack.com/
-POST Form 上传PDF文件 http://api.tohack.com/upload
-```
-<form enctype="multipart/form-data" action="/upload" method="post">
-    <input type="file" name="file1"><br>
-    <input type="submit" name="submit" value="PDF转换OFD">
+~~~html
+<form name="p2o" enctype="multipart/form-data" action="http://api.tohack.com/upload" method="post" target="_blank">
+    <input type="file" name="file1">
+    <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.p2o.submit();">
 </form>
-```
-```
+~~~
+~~~json
 // 返回值
 {
     "status": 0,  // 0成功
     "speed": 120, // 处理时间,单位毫秒
     "data": "http://api.tohack.com/ofd-process/0050090931.ofd"
 }
-```
-
+~~~
 ***
+#### 20201125
+>   1.优化:增加图片格式转换jb2接口,增对部分灰度图像
+    2.修改部分错误字符的gid导致排版错乱
+#### 20201119
+>   1.优化:增加图片格式转换jpeg接口,主要是动态生成的mask,增对灰度图像,可以更小
 #### 20201118
 >   1.绘图模式处理,根据不同的模式生成mask图片
 #### 20201107

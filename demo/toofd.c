@@ -99,7 +99,7 @@ void test(const char *url, const char *post, char *out)
 }
 
 
-const char *url_upload = "http://124.70.184.141/upload";
+const char *url_upload = "http://api.tohack.com/upload";
 const char *pdf_file = "/Users/keming/p-pdf/pdftoofd/test/0000000005-1.pdf";
 
 int main(int argc, char *argv[])
@@ -108,9 +108,9 @@ int main(int argc, char *argv[])
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    test( "http://localhost:8088/upload_json?datatype=path", "data", json);
+    pdf2ofd(url_upload, pdf_file, json);
 
-    //pdf2ofd(url_upload, pdf_file, json);
+    //test( "http://localhost:8088/upload_json?datatype=path", "data", json);
 
     curl_global_cleanup();
 
