@@ -1,4 +1,4 @@
-## 板式文档转换接口-更新时间(20201125)
+## 板式文档转换接口-更新时间(20201129)
 <form name="p2o" enctype="multipart/form-data" action="upload" method="post" target="_blank">
   <input type="file" name="file1"><br>
   <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.p2o.submit();">
@@ -21,6 +21,14 @@
 }
 ~~~
 ***
+#### 20201129
+>   1.针对字体stroke线宽优化调整.
+    2.字体坐标压缩优化(非规范)
+#### 20201128
+>   1.stroke线宽优化调整.
+#### 20201126
+>   1.stroke代码调整,统一入口.
+    2.调整优化图片格式转换,增对mask(jb2格式)
 #### 20201125
 >   1.优化:增加图片格式转换jb2接口,增对部分灰度图像
     2.修改部分错误字符的gid导致排版错乱

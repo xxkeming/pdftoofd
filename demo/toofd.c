@@ -83,6 +83,14 @@ void test(const char *url, const char *post, char *out)
 
 	    curl_easy_setopt(curl, CURLOPT_WRITEDATA, out);
 
+        /*
+        // 在http 请求头加入 gzip压缩
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, "Accept-Encoding:gzip");
+
+        // curl返回的结果，采用gzip解压
+        curl_easy_setopt(curl, CURLOPT_ENCODING, "gzip");
+        */
+
         //struct curl_slist *header = NULL;
         //header = curl_slist_append(header, "Content-Type: application/json; charset=utf-8;");
         //curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
