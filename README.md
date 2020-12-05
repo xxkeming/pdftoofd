@@ -1,4 +1,4 @@
-## 板式文档转换接口-更新时间(20201203)
+## 板式文档转换接口-更新时间(20201205)
 <form name="p2o" enctype="multipart/form-data" action="upload" method="post" target="_blank">
   <input type="file" name="file1"><br>
   <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.p2o.submit();">
@@ -21,8 +21,12 @@
 }
 ~~~
 ***
+#### 20201205
+>   1.路径,文件剪切优化修改
+    2.路径颜色渐变优化修改
+    3.添加支持文字颜色渐变处理
 #### 20201203
->   1.mask分组优化处理,主要是防止程序出错
+>   1.mask分组优化处理,增加异常处理
 #### 20201202
 >   1.字体优化,针对不是utf8的字体
 #### 20201130
