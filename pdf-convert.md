@@ -1,17 +1,10 @@
 #### 上传PDF转OFD,PNG,SVG-服务更新时间(20201226)
-<form name="pdf" class="float-right" action="http://api.tohack.com/pdf-convert?otype=ofd" enctype='multipart/form-data' method='POST' target="_blank">
-     <input type="file" class="btn btn-primary btn-sm" name="file" style="display:none" onchange="upload.click()" >
-     <input type="button" onclick="file.click()" class="btn btn-primary btn-sm" value="选择PDF文档转换"/>
-     <button class="btn btn-primary btn-sm" type="submit" name="upload" style="display:none">上传</button>
+<form name="pdf" action="http://api.tohack.com/pdf-convert?otype=ofd" enctype='multipart/form-data' method='POST'  target="iframeout">
+     <input type="file" accept=".pdf" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
+     <input type="button" onclick="file.click()" style="width:100%" value="单击选择PDF文档开始转换"/>
+     <button type="submit" name="upload" style="display:none">上传</button>
 </form>
-
-~~~html
-<form name="pdf" enctype="multipart/form-data" action="http://api.tohack.com/pdf-convert?otype=ofd method="post" target="_blank">
-    <input type="file" name="file1">
-    <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.pdf.submit();">
-</form>
-~~~
-
+<iframe width="100%" height="120" id="iframeout" name="iframeout" style="display:none"></iframe>
 ~~~json
 // 返回值
 {
@@ -20,7 +13,12 @@
     "data": "http://api.tohack.com/pdf-process/0050090931.ofd"
 }
 ~~~
-
+~~~html
+<form name="pdf" enctype="multipart/form-data" action="http://api.tohack.com/pdf-convert?otype=ofd method="post" target="_blank">
+    <input type="file" name="file1">
+    <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.pdf.submit();">
+</form>
+~~~
 ##### PDF转换接口功能描述
 ~~~
 上传PDF文档转换为OFD,PNG,SVG,为了效率,上传方式为form提交

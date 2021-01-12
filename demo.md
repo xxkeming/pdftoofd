@@ -45,8 +45,6 @@ defined('APP_STATUS')   or define('APP_STATUS',     ''); // 应用状态 加载�
 defined('APP_DEBUG')    or define('APP_DEBUG',      false); // 是否调试模式
 ~~~
 
-
-
 ```sequence
 Title: Here is a title
 A->B: Normal line
@@ -54,3 +52,4 @@ B-->C: Dashed line
 C->>D: Open arrow
 D-->>A: Dashed open arrow
 ```
+
