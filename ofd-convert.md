@@ -1,5 +1,5 @@
-#### 上传OFD转PNG,SVG-服务更新时间(20210112)
-<form name="ofd" action="http://api.tohack.com/ofd-convert?otype=svg" enctype='multipart/form-data' method='POST' target="iframeout">
+#### 上传OFD转PNG,SVG-服务更新时间(20210114)
+<form name="ofd" action="http://api.tohack.com/ofd-convert?otype=svg&dtype=file" enctype='multipart/form-data' method='POST' target="iframeout">
      <input type="file" accept=".ofd" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择OFD文档开始转换"/>
      <button type="submit" name="upload" style="display:none">上传</button>
@@ -7,7 +7,7 @@
 <iframe width="100%" height="120" id="iframeout" name="iframeout" style="display:none"></iframe>
 
 ~~~json
-// 返回值
+// 返回值 JSON格式
 {
     "status": 0,  // 0成功
     "speed": 120, // 处理时间,单位毫秒
@@ -16,7 +16,7 @@
 ~~~
 
 ~~~html
-<form name="ofd" enctype="multipart/form-data" action="http://api.tohack.com/ofd-convert?otype=svg" method="post" target="_blank">
+<form name="ofd" enctype="multipart/form-data" action="http://api.tohack.com/ofd-convert?otype=svg&dtype=file" method="post" target="_blank">
     <input type="file" name="file1">
     <input type="submit" name="submit" value="转换" οnclick="javascript:document.ofd.submit();">
 </form>
@@ -25,14 +25,26 @@
 ##### OFD转换接口功能描述
 ~~~
 上传OFD文档转换为PNG,SVG,为了效率,上传方式为form提交
+otype 转换后的文件类型
+dtype 等于file时,如果转换成功,会直接输出为文件流,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
 ~~~
 
 ##### OFD转换测试接口地址
 ~~~
-http://api.tohack.com/ofd-convert?otype=svg|png
+http://api.tohack.com/ofd-convert?otype=svg|png&dtype=file
 ~~~
 
 ***
+#### 20210114
+~~~
+1. ofd模板解析bug,导致渲染多个模板
+2. 解析DrawParam参数,找不到参数时,忽略掉
+3. text的deltax坐标问题,如果后面参数错误,默认按上一个的值处理(有的ofd格式不按标准做的)
+~~~
+#### 20210113
+~~~
+1. path的剪切ctm小数位精度调整,坐标优化修改
+~~~
 #### 20210112
 ~~~
 1. text文字对象glyphs的优化处理（对一些未知字体还是有问题）
