@@ -1,4 +1,4 @@
-#### 上传PDF转OFD,PNG,SVG-服务更新时间(20210114)
+#### 上传PDF在线转OFD,PNG,SVG-服务更新时间(20210114)
 <form name="pdf" action="http://api.tohack.com/pdf-convert?otype=ofd&dtype=file" enctype='multipart/form-data' method='POST'  target="iframeout">
      <input type="file" accept=".pdf" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择PDF文档开始转换"/>
@@ -26,13 +26,16 @@
 ~~~
 上传PDF文档转换为OFD,PNG,SVG,为了效率,上传方式为form提交
 otype 转换后的文件类型
-dtype 等于file时,如果转换成功,会直接输出为文件流,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
+dtype 等于file时,如果转换成功,会直接输出为文件流,如果没有dtype参数,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
 ~~~
 
 ##### PDF转换测试接口地址
 ~~~
 http://api.tohack.com/pdf-convert?otype=ofd|svg|png&dtype=file
 ~~~
+
+##### 参考代码
+[转换接口封装源码及可执行程序](/381.html "转换接口封装源码(curl)")
 
 ***
 #### 20210113

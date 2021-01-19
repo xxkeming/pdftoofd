@@ -1,4 +1,4 @@
-#### 上传OFD转PNG,SVG-服务更新时间(20210114)
+#### 上传OFD在线转PNG,SVG-服务更新时间(20210119)
 <form name="ofd" action="http://api.tohack.com/ofd-convert?otype=svg&dtype=file" enctype='multipart/form-data' method='POST' target="iframeout">
      <input type="file" accept=".ofd" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择OFD文档开始转换"/>
@@ -26,7 +26,7 @@
 ~~~
 上传OFD文档转换为PNG,SVG,为了效率,上传方式为form提交
 otype 转换后的文件类型
-dtype 等于file时,如果转换成功,会直接输出为文件流,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
+dtype 等于file时,如果转换成功,会直接输出为文件流,如果没有dtype参数,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
 ~~~
 
 ##### OFD转换测试接口地址
@@ -34,7 +34,25 @@ dtype 等于file时,如果转换成功,会直接输出为文件流,默认是输�
 http://api.tohack.com/ofd-convert?otype=svg|png&dtype=file
 ~~~
 
+##### 参考代码
+[转换接口封装源码及可执行程序](/381.html "转换接口封装源码(curl)")
+[电子印章格式封装源码(Openssl封装)](/369.html "电子印章格式封装C源码")
+
 ***
+
+#### 20210119
+~~~
+1. 添加注释解析(参考板式文档规范)(支持水印,包含其他基本内容对象的解析)
+2. 复合对象,优化调整,主要是针对复合对象内容的坐标计算方式
+3. 裁剪增对图片优化,调整
+3. 印章格式解析优化,支持各种版本的格式解析
+~~~
+
+#### 20210117
+~~~
+1. 添加签名,印章数据解析,参考规范(安全电子签章密码技术规范 GM/T 0031 2014 | GB∕T 38540-2020)[格式封装代码](http://www.tohack.com/369.html)
+2. 印章图片数据格式解析支持(jpg,png,gif,bmp,jb2,ofd)
+~~~
 #### 20210114
 ~~~
 1. ofd模板解析bug,导致渲染多个模板

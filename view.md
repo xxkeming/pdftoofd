@@ -1,7 +1,17 @@
-#### OFD阅读器 Windows 64位 更新时间(20210114)
+#### OFD阅读器 Windows 64位 更新时间(20210119)
 
 ##### 下载地址
-[点击下载](http://tohack.com/wp-content/uploads/2021/01/ofdview.210112.zip)
+[点击下载](http://www.tohack.com/wp-content/uploads/2021/01/ofdview210117.zip)
+
+#### 20210119
+~~~
+1. 添加注释内容的绘制
+~~~
+
+#### 20210117
+~~~
+1. 增加印章的绘制,裁剪
+~~~
 
 #### 20210113
 ~~~
