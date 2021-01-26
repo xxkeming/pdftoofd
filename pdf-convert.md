@@ -1,4 +1,4 @@
-#### 上传PDF在线转OFD,PNG,SVG-服务更新时间(20210114)
+#### 上传PDF在线转OFD,PNG,SVG-服务更新时间(20210120)
 <form name="pdf" action="http://api.tohack.com/pdf-convert?otype=ofd&dtype=file" enctype='multipart/form-data' method='POST'  target="iframeout">
      <input type="file" accept=".pdf" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择PDF文档开始转换"/>
@@ -38,6 +38,11 @@ http://api.tohack.com/pdf-convert?otype=ofd|svg|png&dtype=file
 [转换接口封装源码及可执行程序](/381.html "转换接口封装源码(curl)")
 
 ***
+#### 20210120
+~~~
+1.生成OFD文档的资源优化(图片,字体)
+2.参考板式文档规范,完善所有对象需添加的必要属性,规范化
+~~~
 #### 20210113
 ~~~
 1.修改path剪切的ctm,小数位精度的bug
