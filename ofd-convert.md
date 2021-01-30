@@ -5,7 +5,6 @@
      <button type="submit" name="upload" style="display:none">上传</button>
 </form>
 <iframe width="100%" height="120" id="iframeout" name="iframeout" style="display:none"></iframe>
-
 ~~~json
 // 返回值 JSON格式
 {
@@ -35,10 +34,16 @@ http://api.tohack.com/ofd-convert?otype=svg|png&dtype=file
 ~~~
 
 ##### 参考代码
-[转换接口封装源码及可执行程序](/381.html "转换接口封装源码(curl)")
+[转换本地接口封装源码及可执行程序](/381.html "转换本地接口封装源码(curl)")
 [电子印章格式封装源码(Openssl封装)](/369.html "电子印章格式封装C源码")
 
 ***
+
+#### 20210127
+~~~
+1. text对象的glyphs解析,如果有glyphs直接使用,没有根据文字查找gid
+2. 自定义内嵌字体的解析,根据glyphs直接使用
+~~~
 
 #### 20210120
 ~~~
