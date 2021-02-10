@@ -1,5 +1,5 @@
 #### 上传PDF在线转OFD,PNG,SVG-服务更新时间(20210120)
-<form name="pdf" action="http://api.tohack.com/pdf-convert?otype=ofd&dtype=file" enctype='multipart/form-data' method='POST'  target="iframeout">
+<form name="pdf" action="http://api.myofd.cn/pdf-convert?otype=ofd&dtype=file" enctype='multipart/form-data' method='POST'  target="iframeout">
      <input type="file" accept=".pdf" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择PDF文档开始转换"/>
      <button type="submit" name="upload" style="display:none">上传</button>
@@ -11,12 +11,12 @@
 {
     "status": 0,  // 0成功
     "speed": 120, // 处理时间,单位毫秒
-    "data": "http://api.tohack.com/pdf-process/0050090931.ofd"
+    "data": "http://api.myofd.cn/pdf-process/0050090931.ofd"
 }
 ~~~
 
 ~~~html
-<form name="pdf" enctype="multipart/form-data" action="http://api.tohack.com/pdf-convert?otype=ofd&dtype=file" method="post" target="_blank">
+<form name="pdf" enctype="multipart/form-data" action="http://api.myofd.cn/pdf-convert?otype=ofd&dtype=file" method="post" target="_blank">
     <input type="file" name="file1">
     <input type="submit" name="submit" value="PDF转换OFD" οnclick="javascript:document.pdf.submit();">
 </form>
@@ -31,12 +31,16 @@ dtype 等于file时,如果转换成功,会直接输出为文件流,如果没有d
 
 ##### PDF转换测试接口地址
 ~~~
-http://api.tohack.com/pdf-convert?otype=ofd|svg|png&dtype=file
+http://api.myofd.cn/pdf-convert?otype=ofd|svg|png&dtype=file
 ~~~
 
 ##### 参考代码
 [转换本地接口封装源码及可执行程序](/381.html "转换本地接口封装源码(curl)")
 
+#### 20210210
+~~~
+1.增加签名的验证（pkcs7,根证书的验证）
+~~~
 ***
 #### 20210130
 ~~~

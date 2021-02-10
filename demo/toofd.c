@@ -103,8 +103,8 @@ int main(int argc, char *argv[])
         printf("file pdf out error, out file(ofd or svg or png)\n");
         goto error;
     }
-
-    sprintf(url, "http://api.tohack.com/%s-convert?otype=%s&dtype=%s", strcasecmp(p, ".ofd") == 0 ? "ofd": "pdf", o, o == argv[2] ? "json" : "file");
+    
+    sprintf(url, "http://api.myofd.cn/%s-convert?otype=%s&dtype=%s", strcasecmp(p, ".ofd") == 0 ? "ofd": "pdf", o, o == argv[2] ? "json" : "file");
 
     in = BIO_new(BIO_s_file());
     if (BIO_read_filename(in, argv[1]) <= 0) {

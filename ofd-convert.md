@@ -1,5 +1,5 @@
 #### 上传OFD在线转PNG,SVG-服务更新时间(20210119)
-<form name="ofd" action="http://api.tohack.com/ofd-convert?otype=svg&dtype=file" enctype='multipart/form-data' method='POST' target="iframeout">
+<form name="ofd" action="http://api.myofd.cn/ofd-convert?otype=svg&dtype=file" enctype='multipart/form-data' method='POST' target="iframeout">
      <input type="file" accept=".ofd" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择OFD文档开始转换"/>
      <button type="submit" name="upload" style="display:none">上传</button>
@@ -10,12 +10,12 @@
 {
     "status": 0,  // 0成功
     "speed": 120, // 处理时间,单位毫秒
-    "data": "http://api.tohack.com/ofd-process/0050090931.ofd"
+    "data": "http://api.myofd.cn/ofd-process/0050090931.ofd"
 }
 ~~~
 
 ~~~html
-<form name="ofd" enctype="multipart/form-data" action="http://api.tohack.com/ofd-convert?otype=svg&dtype=file" method="post" target="_blank">
+<form name="ofd" enctype="multipart/form-data" action="http://api.myofd.cn/ofd-convert?otype=svg&dtype=file" method="post" target="_blank">
     <input type="file" name="file1">
     <input type="submit" name="submit" value="转换" οnclick="javascript:document.ofd.submit();">
 </form>
@@ -30,7 +30,7 @@ dtype 等于file时,如果转换成功,会直接输出为文件流,如果没有d
 
 ##### OFD转换测试接口地址
 ~~~
-http://api.tohack.com/ofd-convert?otype=svg|png&dtype=file
+http://api.myofd.cn/ofd-convert?otype=svg|png&dtype=file
 ~~~
 
 ##### 参考代码
@@ -38,6 +38,15 @@ http://api.tohack.com/ofd-convert?otype=svg|png&dtype=file
 [电子印章格式封装源码(Openssl封装)](/369.html "电子印章格式封装C源码")
 
 ***
+
+#### 20210210
+~~~
+1. 资源查找方式优化（嵌套,集合）
+2. 验签和验章的接口优化,封装统一（支持pkcs7,sm2的消息语法规范,印章的多种版本,根证书的验证）
+
+#### 20210202
+~~~
+1. 添加印章的验证,如果验证失败,章的图片将为黑白
 
 #### 20210127
 ~~~
