@@ -2,15 +2,15 @@
 
 ##### OFD转PNG,SVG
 ~~~
-http://tohack.com/ofd-convert
+https://myofd.cn/ofd-convert.html
 ~~~
 ##### PDF转OFD,PNG,SVG
 ~~~
-http://tohack.com/pdf-convert
+https://myofd.cn//pdf-convert.html
 ~~~
-##### OFD文档阅读器 Windows 64位
+##### OFD文档阅读器 Windows 32位 64位
 ~~~
-http://tohack.com/ofd-view
+https://myofd.cn//ofd-view.html
 ~~~
 
 ### OFD是什么

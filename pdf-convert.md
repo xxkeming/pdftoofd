@@ -37,6 +37,11 @@ http://api.myofd.cn/pdf-convert?otype=ofd|svg|png&dtype=file
 ##### 参考代码
 [转换本地接口封装源码及可执行程序](/381.html "转换本地接口封装源码(curl)")
 
+#### 20210225
+~~~
+1.转ofd文件时,剪切对象(clips),支持多个
+2.字体对象stroke,linewidth,miterlimit精度优化
+~~~
 #### 20210210
 ~~~
 1.增加签名的验证（pkcs7,根证书的验证）
