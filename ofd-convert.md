@@ -1,5 +1,10 @@
 #### 上传OFD在线转PNG,SVG-服务更新时间(20210119)
-<form name="ofd" action="http://api.myofd.cn/ofd-convert?otype=svg&dtype=file" enctype='multipart/form-data' method='POST' target="iframeout">
+<form name="ofd" action="http://api.myofd.cn/ofd-convert?otype=svg&dtype=file&dindex=0" enctype='multipart/form-data' method='POST' target="_blank">
+     <input type="file" accept=".ofd" name="file" style="display:none" onchange="upload.click()" >
+     <input type="button" onclick="file.click()" style="width:100%" value="单击选择OFD文档开始转换"/>
+     <button type="submit" name="upload" style="display:none">上传</button>
+</form>
+<form name="ofd" action="http://api.myofd.cn/ofd-convert?otype=svg&dtype=file&dindex=0" enctype='multipart/form-data' method='POST' target="iframeout">
      <input type="file" accept=".ofd" name="file" style="display:none" onchange="document.all.iframeout.style.display='';upload.click()" >
      <input type="button" onclick="file.click()" style="width:100%" value="单击选择OFD文档开始转换"/>
      <button type="submit" name="upload" style="display:none">上传</button>
@@ -25,12 +30,13 @@
 ~~~
 上传OFD文档转换为PNG,SVG,为了效率,上传方式为form提交
 otype 转换后的文件类型
+dindex 转换第几页(转换PNG,SVG时有效),默认从0开始，0代表第1页,2代表第2页等
 dtype 等于file时,如果转换成功,会直接输出为文件流,如果没有dtype参数,默认是输出json格式,文件会暂存在服务器,通过data的地址下载,出错时也返回json格式
 ~~~
 
 ##### OFD转换测试接口地址
 ~~~
-http://api.myofd.cn/ofd-convert?otype=svg|png&dtype=file
+http://api.myofd.cn/ofd-convert?otype=svg|png&dtype=file&dindex=0
 ~~~
 
 ##### 参考代码
@@ -39,10 +45,16 @@ http://api.myofd.cn/ofd-convert?otype=svg|png&dtype=file
 
 ***
 
+#### 20210320
+~~~
+1. ofd格式解析,zip格式优化,支持不规范的格式
+~~~
+
 #### 20210210
 ~~~
 1. 资源查找方式优化（嵌套,集合）
 2. 验签和验章的接口优化,封装统一（支持pkcs7,sm2的消息语法规范,印章的多种版本,根证书的验证）
+~~~
 
 #### 20210202
 ~~~
